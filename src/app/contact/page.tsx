@@ -59,7 +59,7 @@ export default function ContactPage() {
                   <Mail className="text-primary-600 mt-1 shrink-0" size={24} />
                   <div>
                     <h3 className="font-semibold text-primary-800">อีเมล</h3>
-                    <p className="text-gray-600 text-sm">surapas.m@bancheetech.com</p>
+                    <p className="text-gray-600 text-sm">webancheetech@gmail.com</p>
                   </div>
                 </div>
 
@@ -67,7 +67,7 @@ export default function ContactPage() {
                   <Phone className="text-primary-600 mt-1 shrink-0" size={24} />
                   <div>
                     <h3 className="font-semibold text-primary-800">โทรศัพท์</h3>
-                    <p className="text-gray-600 text-sm">02-XXX-XXXX</p>
+                    <p className="text-gray-600 text-sm">(+66) 83 907 6303</p>
                   </div>
                 </div>
 
