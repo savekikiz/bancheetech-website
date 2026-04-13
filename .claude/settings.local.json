@@ -5,7 +5,9 @@
       "Bash(npm install:*)",
       "Bash(npm run:*)",
       "Bash(node -e \"const l = require\\('lucide-react'\\); console.log\\(Object.keys\\(l\\).filter\\(k => k.toLowerCase\\(\\).includes\\('facebook'\\)\\).join\\(', '\\) || 'none'\\); console.log\\(Object.keys\\(l\\).filter\\(k => k.toLowerCase\\(\\).includes\\('external'\\)\\).join\\(', '\\)\\)\")",
-      "mcp__Claude_Preview__preview_start"
+      "mcp__Claude_Preview__preview_start",
+      "Bash(mkdir -p /tmp/favicon-work)",
+      "Bash(sips -z 180 180 --cropToHeightWidth 180 180 public/bancheetech-logo.png --out /tmp/favicon-work/apple-icon.png)"
     ]
   }
 }
