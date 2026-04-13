@@ -47,3 +47,29 @@ body {
 .animate-fade-in {
   animation: fade-in 0.3s ease-out;
 }
+
+/* Blog content: default image styles */
+/* รูปที่ใช้ Markdown ปกติ ![alt](url) จะได้ default style */
+/* รูปที่ใช้ <img> + width/style จะ override ได้อิสระ */
+.blog-content img:not([width]):not([style]) {
+  max-width: 100%;
+  max-height: 480px;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* รูปที่กำหนด width เอง ให้มี max-width ไม่ล้น */
+.blog-content img[width],
+.blog-content img[style] {
+  max-width: 100%;
+  height: auto;
+}
+
+/* รูปใน div ที่ text-align:center ให้จัดกลางด้วย margin auto */
+.blog-content div[style*="text-align"] img {
+  margin-left: auto;
+  margin-right: auto;
+}

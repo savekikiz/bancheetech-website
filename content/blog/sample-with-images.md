@@ -13,36 +13,97 @@ tags: ["ตัวอย่าง", "เคล็ดลับ"]
 
 ## การใส่รูปภาพ
 
-### รูปภาพจากโฟลเดอร์ public ของเว็บไซต์
+### แบบที่ 1: Markdown ปกติ (ใช้ขนาด default)
 
-ใส่รูปที่อยู่ในโฟลเดอร์ `public/images/` ของโปรเจกต์:
+รูปจะได้ขนาด default คือ ความสูงสูงสุด 480px จัดกึ่งกลาง มีมุมโค้งและเงา:
+
+```
+![คำอธิบายรูป](/path/to/image.png)
+```
+
+ตัวอย่าง:
 
 ![BancheeTech Logo](/bancheetech-logo.png)
 
-### รูปภาพจาก URL ภายนอก
+---
 
-สามารถใส่รูปจากเว็บภายนอกได้โดยตรง:
+### แบบที่ 2: HTML img tag (ปรับขนาดต่อรูปได้!)
 
-![ตัวอย่างรูปจากภายนอก](https://placehold.co/800x400/1E40AF/white?text=BancheeTech+Blog+Image)
+ใช้ `<img>` tag เพื่อ **กำหนดขนาดเฉพาะแต่ละรูป** ได้อิสระ:
 
-### รูปภาพจาก Google Drive
+#### รูปเล็ก (width 200px)
 
-สำหรับรูปจาก Google Drive ให้ใช้ proxy URL ตามรูปแบบนี้:
-
+```html
+<img src="/bancheetech-logo.png" alt="Logo เล็ก" width="200" />
 ```
+
+<img src="/bancheetech-logo.png" alt="Logo เล็ก" width="200" style="border-radius: 12px;" />
+
+#### รูปกลาง (width 400px)
+
+```html
+<img src="URL" alt="คำอธิบาย" width="400" />
+```
+
+<img src="https://placehold.co/800x400/1E40AF/white?text=400px+Width" alt="รูปกลาง" width="400" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+
+#### รูปเต็มความกว้าง (width 100%)
+
+```html
+<img src="URL" alt="คำอธิบาย" width="100%" />
+```
+
+<img src="https://placehold.co/800x300/F97316/white?text=Full+Width+Image" alt="รูปเต็ม" width="100%" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+
+#### กำหนดทั้ง width และ height
+
+```html
+<img src="URL" alt="คำอธิบาย" width="300" height="200" />
+```
+
+<img src="https://placehold.co/300x200/1E40AF/white?text=300x200" alt="กำหนดขนาด" width="300" height="200" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+
+#### จัดตำแหน่งรูป (กึ่งกลาง)
+
+```html
+<div style="text-align: center;">
+  <img src="URL" alt="คำอธิบาย" width="300" />
+  <p><em>คำอธิบายใต้รูป</em></p>
+</div>
+```
+
+<div style="text-align: center;">
+  <img src="https://placehold.co/300x200/F97316/white?text=Centered" alt="จัดกลาง" width="300" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+  <p><em>รูปนี้จัดกึ่งกลาง พร้อมคำอธิบาย</em></p>
+</div>
+
+---
+
+### แบบที่ 3: รูปจาก Google Drive
+
+```html
+<!-- Markdown ปกติ -->
 ![คำอธิบาย](/api/gdrive-image?id=FILE_ID)
+
+<!-- HTML ปรับขนาดได้ -->
+<img src="/api/gdrive-image?id=FILE_ID" alt="คำอธิบาย" width="400" />
 ```
 
 **วิธีหา FILE_ID**: จาก link `https://drive.google.com/file/d/{FILE_ID}/view` เอาส่วน FILE_ID มาใส่
 
-ตัวอย่าง:
+ตัวอย่าง (ขนาด 400px):
 
-![รูปจาก Google Drive](/api/gdrive-image?id=1yh34eKQzlz1acrnqYwkIsuhxc5GOdkTC)
+<img src="/api/gdrive-image?id=1yh34eKQzlz1acrnqYwkIsuhxc5GOdkTC" alt="รูปจาก Google Drive" width="400" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
 
-### รูปภาพพร้อมคำอธิบาย
+---
 
-![ระบบบัญชี AI](https://placehold.co/800x300/F97316/white?text=AI+Accounting+System)
-*ภาพตัวอย่าง: ระบบบัญชีอัตโนมัติด้วย AI*
+## สรุปวิธีใส่รูปภาพ
+
+| วิธี | ปรับขนาดได้? | ตัวอย่าง |
+|------|-------------|---------|
+| `![alt](url)` | ❌ ใช้ขนาด default | Markdown ปกติ ง่ายสุด |
+| `<img src="url" width="300" />` | ✅ ปรับได้ทุกรูป | กำหนด width/height เอง |
+| `<div style="text-align:center">` | ✅ ปรับได้ + จัดตำแหน่ง | ครบสุด |
 
 ---
 

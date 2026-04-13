@@ -66,7 +66,7 @@ export default async function BlogPostPage({ params }: Props) {
       <section className="py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <article
-            className="prose prose-lg max-w-none prose-headings:text-primary-800 prose-a:text-accent-600"
+            className="prose prose-lg max-w-none prose-headings:text-primary-800 prose-a:text-accent-600 blog-content"
             dangerouslySetInnerHTML={{ __html: post.contentHtml }}
           />
         </div>
