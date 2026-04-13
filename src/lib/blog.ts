@@ -11,6 +11,7 @@ export interface PostMeta {
   title: string;
   date: string;
   excerpt: string;
+  tags: string[];
 }
 
 export interface Post extends PostMeta {
@@ -34,10 +35,18 @@ export function getAllPosts(): PostMeta[] {
         title: data.title || slug,
         date: data.date || "",
         excerpt: data.excerpt || "",
+        tags: data.tags || [],
       };
     });
 
   return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+
+export function getAllTags(): string[] {
+  const posts = getAllPosts();
+  const tagSet = new Set<string>();
+  posts.forEach((post) => post.tags.forEach((tag) => tagSet.add(tag)));
+  return Array.from(tagSet).sort();
 }
 
 export async function getPostBySlug(slug: string): Promise<Post | null> {
@@ -55,6 +64,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     title: data.title || slug,
     date: data.date || "",
     excerpt: data.excerpt || "",
+    tags: data.tags || [],
     contentHtml,
   };
 }

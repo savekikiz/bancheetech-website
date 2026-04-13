@@ -47,6 +47,19 @@ export default async function BlogPostPage({ params }: Props) {
             <Calendar size={16} />
             <time>{post.date}</time>
           </div>
+          {post.tags.length > 0 && (
+            <div className="flex flex-wrap gap-2 mt-4">
+              {post.tags.map((tag) => (
+                <Link
+                  key={tag}
+                  href={`/blog?tag=${encodeURIComponent(tag)}`}
+                  className="text-xs font-medium px-3 py-1 rounded-full bg-white/20 text-white hover:bg-white/30 transition-colors"
+                >
+                  #{tag}
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
