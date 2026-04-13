@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getAllPosts, getAllTags } from "@/lib/blog";
+import { getAllPosts } from "@/lib/blog";
 import BlogList from "@/components/BlogList";
 
 export const metadata: Metadata = {
@@ -10,7 +10,6 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   const posts = getAllPosts();
-  const allTags = getAllTags();
 
   return (
     <>
@@ -26,7 +25,7 @@ export default function BlogPage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {posts.length > 0 ? (
-            <BlogList posts={posts} allTags={allTags} />
+            <BlogList posts={posts} />
           ) : (
             <div className="text-center py-12 text-gray-500">
               <p className="text-lg">

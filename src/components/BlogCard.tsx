@@ -7,7 +7,6 @@ interface BlogCardProps {
   excerpt: string;
   date: string;
   tags: string[];
-  onTagClick?: (tag: string) => void;
 }
 
 export default function BlogCard({
@@ -16,7 +15,6 @@ export default function BlogCard({
   excerpt,
   date,
   tags,
-  onTagClick,
 }: BlogCardProps) {
   return (
     <article className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100 overflow-hidden flex flex-col">
@@ -41,14 +39,12 @@ export default function BlogCard({
         {tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mt-4">
             {tags.map((tag) => (
-              <button
+              <span
                 key={tag}
-                type="button"
-                onClick={() => onTagClick?.(tag)}
-                className="text-xs font-medium px-2.5 py-1 rounded-full bg-primary-50 text-primary-700 hover:bg-primary-100 transition-colors cursor-pointer"
+                className="text-xs font-medium px-2.5 py-1 rounded-full bg-primary-50 text-primary-700"
               >
                 #{tag}
-              </button>
+              </span>
             ))}
           </div>
         )}
