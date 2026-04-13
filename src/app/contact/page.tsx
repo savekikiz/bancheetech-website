@@ -39,7 +39,7 @@ export default function ContactPage() {
 
               <div className="space-y-6">
                 <a
-                  href="https://www.facebook.com/bancheetech"
+                  href="https://www.facebook.com/LupinxTaxandAccounting"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-4 p-4 rounded-xl bg-blue-50 hover:bg-blue-100 transition-colors group"
@@ -50,7 +50,7 @@ export default function ContactPage() {
                       Facebook Fan Page
                     </h3>
                     <p className="text-gray-600 text-sm">
-                      @bancheetech — ติดตามข่าวสาร บทความ และอัปเดตล่าสุด
+                      บัญชี Tech ดิจิตอลบัญชีเพื่อ SMEs
                     </p>
                   </div>
                 </a>
@@ -59,7 +59,7 @@ export default function ContactPage() {
                   <Mail className="text-primary-600 mt-1 shrink-0" size={24} />
                   <div>
                     <h3 className="font-semibold text-primary-800">อีเมล</h3>
-                    <p className="text-gray-600 text-sm">contact@bancheetech.com</p>
+                    <p className="text-gray-600 text-sm">surapas.m@bancheetech.com</p>
                   </div>
                 </div>
 

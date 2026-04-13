@@ -56,7 +56,7 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4">ติดตามเรา</h4>
             <a
-              href="https://www.facebook.com/bancheetech"
+              href="https://www.facebook.com/LupinxTaxandAccounting"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm text-primary-200 hover:text-accent-400 transition-colors"
