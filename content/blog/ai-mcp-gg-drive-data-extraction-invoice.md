@@ -2,6 +2,7 @@
 title: "Claude Data Extraction with MCP Googler Connector"
 date: "2025-01-15"
 excerpt: "ปัจจุบัน Claude Vision สามารถ อ่านเอกสารใบเสร็จรับเงินต่างๆ ได้ง่ายมากขึ้น พร้อมกับการเชื่อมต่อกัย google drive ทำให้การจัดการเอกสารจะง่ายมากขึ้น"
+tags: ["AI", "Automation", "เอกสารบัญชี"]
 ---
 
 # Claude Data Extraction with MCP Googler Connector
@@ -12,7 +13,7 @@ excerpt: "ปัจจุบัน Claude Vision สามารถ อ่าน
 
 สามารถใส่รูปจากเว็บภายนอกได้โดยตรง:
 
-![ตัวอย่างรูปจากภายนอก](https://drive.google.com/file/d/1yh34eKQzlz1acrnqYwkIsuhxc5GOdkTC/view?usp=share_link)
+![ตัวอย่างรูปจากภายนอก](/api/gdrive-image?id=1yh34eKQzlz1acrnqYwkIsuhxc5GOdkTC)
 
 ## ปัญหาของระบบบัญชีแบบเดิม
 

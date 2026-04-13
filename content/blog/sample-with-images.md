@@ -25,6 +25,20 @@ tags: ["ตัวอย่าง", "เคล็ดลับ"]
 
 ![ตัวอย่างรูปจากภายนอก](https://placehold.co/800x400/1E40AF/white?text=BancheeTech+Blog+Image)
 
+### รูปภาพจาก Google Drive
+
+สำหรับรูปจาก Google Drive ให้ใช้ proxy URL ตามรูปแบบนี้:
+
+```
+![คำอธิบาย](/api/gdrive-image?id=FILE_ID)
+```
+
+**วิธีหา FILE_ID**: จาก link `https://drive.google.com/file/d/{FILE_ID}/view` เอาส่วน FILE_ID มาใส่
+
+ตัวอย่าง:
+
+![รูปจาก Google Drive](/api/gdrive-image?id=1yh34eKQzlz1acrnqYwkIsuhxc5GOdkTC)
+
 ### รูปภาพพร้อมคำอธิบาย
 
 ![ระบบบัญชี AI](https://placehold.co/800x300/F97316/white?text=AI+Accounting+System)
