@@ -5,29 +5,37 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-800 via-primary-700 to-primary-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+      <section className="relative text-white overflow-hidden">
+        {/* Background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/bancheetech-bg-cover.png')" }}
+        />
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/50" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-36">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6 drop-shadow-lg">
               Transform ระบบบัญชี
               <br />
-              <span className="text-accent-400">ให้ทันสมัยด้วย AI</span>
+              <span className="text-accent-400 drop-shadow-lg">ให้ทันสมัยด้วย AI</span>
             </h1>
-            <p className="text-lg md:text-xl text-primary-100 mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed drop-shadow-md">
               เราช่วยผู้ประกอบการและสำนักงานบัญชี ยกระดับการทำงานด้วยเทคโนโลยี AI
               เพื่อความแม่นยำ รวดเร็ว และประสิทธิภาพสูงสุด
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-accent-500 hover:bg-accent-600 text-white px-8 py-3 rounded-lg font-medium transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all"
               >
                 ติดต่อเรา
-                <ArrowRight size={18} />
+                <ArrowRight size={20} />
               </Link>
               <Link
                 href="/about"
-                className="inline-flex items-center justify-center gap-2 border-2 border-white/30 hover:border-white/60 text-white px-8 py-3 rounded-lg font-medium transition-colors"
+                className="inline-flex items-center justify-center gap-2 border-2 border-white/50 hover:border-white hover:bg-white/10 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all"
               >
                 เรียนรู้เพิ่มเติม
               </Link>
