@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BancheeTech Website
 
-## Getting Started
+เว็บไซต์ BancheeTech — บริการวางและ Transform ระบบบัญชีด้วย AI สำหรับ SMEs และสำนักงานบัญชี
 
-First, run the development server:
+Next.js 16 (App Router) · React 19 · Tailwind CSS v4 · TypeScript
+
+## เริ่มต้น
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # production build
+npx eslint src/ # lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## โครงสร้าง
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/app/            หน้าเว็บ (App Router) + globals.css (design token ทั้งหมด)
+src/components/ui/  primitive ที่ใช้ซ้ำ — Button, Card, Section, Container, PageHeader, Tag, Input
+src/components/     Navbar, Footer, BlogCard, BlogList
+src/lib/            blog.ts (โหลด markdown), nav.ts (เมนูกลาง), cn.ts
+content/blog/       บทความ Markdown + frontmatter (title, date, excerpt, tags)
+design/             ไฟล์อ้างอิงระบบดีไซน์
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Design system
 
-## Learn More
+Token ทั้งหมดอยู่ใน `@theme` ของ `src/app/globals.css` ไฟล์เดียว ไม่มี `tailwind.config` (Tailwind v4 เป็น CSS-first)
 
-To learn more about Next.js, take a look at the following resources:
+**กฎที่ต้องรักษาไว้**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **พื้นหลังเป็นขาวล้วน `#FFFFFF`** ความอบอุ่นมาจากการ์ด ไม่ใช่จากพื้น
+- **ยกระดับด้วยเส้น ไม่ใช่เงา** ใช้ `border-hairline` (`#E5E7EB`) — ในระบบมีสีเส้นเดียว ไม่ใช้ `shadow-*` กับการ์ด
+- **น้ำเงิน = โครงสร้าง / ส้ม = จุดเน้น** ส้มใช้กับ CTA, คำเน้น, ไอคอน เท่านั้น ห้ามเอาไปทาพื้น section
+- **`rounded-full` สงวนไว้ให้ปุ่ม CTA** เท่านั้น — tag/badge ใช้ `rounded-sm`
+- **สองฟอนต์ ไม่สลับหน้าที่** — `font-display` (Anuphan) สำหรับหัวข้อ, `font-sans` (IBM Plex Sans Thai) สำหรับเนื้อความ
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**contrast ที่ต้องระวัง** — `accent-500`/`accent-600` ใช้เป็นตัวอักษรบนพื้นขาวไม่ผ่าน WCAG AA
+ถ้าต้องการส้มเป็นตัวอักษรให้ใช้ `accent-700` (5.2:1) และปุ่มพื้นส้มใช้ตัวอักษรสี `ink-950` (6.7:1) ไม่ใช่สีขาว (2.8:1)
 
-## Deploy on Vercel
+## หมายเหตุ
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- ฟอร์มในหน้า `/contact` ยังไม่ได้ต่อ backend (ปิดใช้งานไว้และชี้ผู้ใช้ไป Facebook/อีเมลแทน)
+- `/claude-101-workshop` redirect ออกไป Notion — ตั้งค่าใน `next.config.ts`

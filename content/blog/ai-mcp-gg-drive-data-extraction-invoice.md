@@ -12,7 +12,7 @@ tags: ["AI", "Claude", "MCP", "GoogleDrive", "Automation", "เอกสาร�
 บทความนี้จะพาไปดูวิธีต่อ **Model Context Protocol (MCP)** เชื่อม Claude เข้ากับ Google Drive เพื่อสร้าง Automation Engine ที่สกัดข้อมูลจากเอกสารบัญชีแบบ end-to-end — ตั้งแต่ดึงไฟล์จาก Drive อ่านด้วย Claude Vision ส่งผลเข้า Excel/PEAK/Flow Account โดยแทบไม่ต้องคีย์มือเลย
 
 <!-- [ใส่รูป: hero image — Claude + Google Drive workflow diagram] -->
-<img src="/api/gdrive-image?id=1qADlamgoH3EENnxXpBjHwBvVc8pT5o4x" alt="Claude + Google Drive MCP workflow" width="600" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+<img src="/api/gdrive-image?id=1qADlamgoH3EENnxXpBjHwBvVc8pT5o4x" alt="Claude + Google Drive MCP workflow" width="600" style="border-radius: 12px;" />
 
 ---
 
@@ -77,7 +77,7 @@ tags: ["AI", "Claude", "MCP", "GoogleDrive", "Automation", "เอกสาร�
 ประเด็นต่อยอดที่น่าสนใจคือ ถ้า Excel template ที่ใช้เป็นรูปแบบ **import-ready ของ PEAK หรือ Flow Account** จะ import ไฟล์เข้าโปรแกรมบัญชีได้ทันที — แปลว่านักบัญชีแทบไม่ต้องคีย์ data entry อีกต่อไป
 
 <div style="text-align: center;">
-  <img src="/blog-images/ai-mcp-gg-drive-data-extraction-invoice/workflow-diagram.png" alt="End-to-end workflow diagram" width="600" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+  <img src="/blog-images/ai-mcp-gg-drive-data-extraction-invoice/workflow-diagram.png" alt="End-to-end workflow diagram" width="600" style="border-radius: 12px;" />
   <p><em>รูปที่ 1: end-to-end workflow ตั้งแต่ Drive ไปจนถึงโปรแกรมบัญชี</em></p>
 </div>
 

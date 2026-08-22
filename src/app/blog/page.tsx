@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { getAllPosts } from "@/lib/blog";
 import BlogList from "@/components/BlogList";
+import Container from "@/components/ui/Container";
+import Section from "@/components/ui/Section";
+import PageHeader from "@/components/ui/PageHeader";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -13,28 +17,28 @@ export default function BlogPage() {
 
   return (
     <>
-      <section className="bg-primary-800 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold mb-4">Blog</h1>
-          <p className="text-primary-200 text-lg max-w-2xl">
-            บทความ ความรู้ และเทรนด์ล่าสุดเกี่ยวกับระบบบัญชีและเทคโนโลยี AI
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        eyebrow="Insights"
+        title="Blog"
+        lead="บทความ ความรู้ และเทรนด์ล่าสุดเกี่ยวกับระบบบัญชีและเทคโนโลยี AI"
+      />
 
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Section tone="canvas" pad="lg">
+        <Container>
           {posts.length > 0 ? (
-            <BlogList posts={posts} />
+            /* useSearchParams ใน BlogList ต้องมี Suspense ครอบ ไม่งั้น next build จะ fail */
+            <Suspense fallback={<div className="h-12 rounded-md bg-surface-1" />}>
+              <BlogList posts={posts} />
+            </Suspense>
           ) : (
-            <div className="text-center py-12 text-gray-500">
-              <p className="text-lg">
+            <div className="text-center py-12 text-ink-muted">
+              <p className="text-body-lg">
                 ยังไม่มีบทความ — กำลังเตรียมเนื้อหาดีๆ ให้คุณเร็วๆ นี้
               </p>
             </div>
           )}
-        </div>
-      </section>
+        </Container>
+      </Section>
     </>
   );
 }

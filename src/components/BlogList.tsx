@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useSearchParams } from "next/navigation";
 import BlogCard from "./BlogCard";
 import { ChevronLeft, ChevronRight, Search, X } from "lucide-react";
 
@@ -15,8 +16,10 @@ interface PostMeta {
 const POSTS_PER_PAGE = 9; // 3 columns x 3 rows
 
 export default function BlogList({ posts }: { posts: PostMeta[] }) {
+  // รองรับลิงก์ /blog?tag=... จากหน้าบทความ
+  const tagParam = useSearchParams().get("tag") ?? "";
   const [currentPage, setCurrentPage] = useState(1);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState(tagParam ? `#${tagParam}` : "");
 
   // Filter posts by search query (matches title and tags)
   const filteredPosts = useMemo(() => {
@@ -59,7 +62,8 @@ export default function BlogList({ posts }: { posts: PostMeta[] }) {
 
   function goToPage(page: number) {
     setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
   }
 
   return (
@@ -69,20 +73,20 @@ export default function BlogList({ posts }: { posts: PostMeta[] }) {
         <div className="relative max-w-xl">
           <Search
             size={20}
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-ink-faint pointer-events-none"
           />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => handleSearchChange(e.target.value)}
             placeholder="ค้นหาบทความ... พิมพ์ชื่อหัวข้อ หรือ #hashtag"
-            className="w-full pl-12 pr-12 py-3.5 rounded-xl border border-gray-300 bg-white text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all shadow-sm text-sm"
+            className="w-full h-12 pl-12 pr-12 rounded-md border border-hairline bg-canvas text-body-md text-ink placeholder:text-ink-faint focus:ring-2 focus:ring-primary-500/30 focus:border-primary-600 outline-none transition-colors"
           />
           {searchQuery && (
             <button
               type="button"
               onClick={() => handleSearchChange("")}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-ink-faint hover:text-ink transition-colors cursor-pointer"
               aria-label="ล้างการค้นหา"
             >
               <X size={18} />
@@ -92,7 +96,7 @@ export default function BlogList({ posts }: { posts: PostMeta[] }) {
 
         {/* Search result info */}
         {searchQuery && (
-          <p className="mt-3 text-sm text-gray-500">
+          <p className="mt-3 text-body-sm text-ink-muted">
             พบ <strong className="text-primary-700">{filteredPosts.length}</strong> บทความ
             สำหรับ &ldquo;<span className="text-primary-700">{searchQuery}</span>&rdquo;
           </p>
@@ -101,16 +105,16 @@ export default function BlogList({ posts }: { posts: PostMeta[] }) {
 
       {/* Blog grid */}
       {paginatedPosts.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {paginatedPosts.map((post) => (
             <BlogCard key={post.slug} {...post} />
           ))}
         </div>
       ) : (
-        <div className="text-center py-16 text-gray-500">
-          <Search size={48} className="mx-auto mb-4 text-gray-300" />
-          <p className="text-lg font-medium">ไม่พบบทความที่ตรงกับการค้นหา</p>
-          <p className="text-sm mt-1">ลองค้นหาด้วยคำอื่น หรือ #hashtag</p>
+        <div className="text-center py-16 text-ink-muted">
+          <Search size={48} className="mx-auto mb-4 text-hairline" />
+          <p className="text-body-lg font-medium text-ink">ไม่พบบทความที่ตรงกับการค้นหา</p>
+          <p className="text-body-sm mt-1">ลองค้นหาด้วยคำอื่น หรือ #hashtag</p>
         </div>
       )}
 
@@ -121,7 +125,7 @@ export default function BlogList({ posts }: { posts: PostMeta[] }) {
             type="button"
             onClick={() => goToPage(safeCurrentPage - 1)}
             disabled={safeCurrentPage === 1}
-            className="p-2 rounded-lg border border-gray-300 hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed transition-colors cursor-pointer"
+            className="p-2 rounded-md border border-hairline text-ink-body hover:bg-surface-1 disabled:opacity-30 disabled:cursor-not-allowed transition-colors cursor-pointer"
             aria-label="หน้าก่อน"
           >
             <ChevronLeft size={20} />
@@ -132,10 +136,10 @@ export default function BlogList({ posts }: { posts: PostMeta[] }) {
               key={page}
               type="button"
               onClick={() => goToPage(page)}
-              className={`w-10 h-10 rounded-lg font-medium text-sm transition-colors cursor-pointer ${
+              className={`w-10 h-10 rounded-md font-medium text-body-sm transition-colors cursor-pointer ${
                 safeCurrentPage === page
-                  ? "bg-primary-700 text-white shadow-md"
-                  : "border border-gray-300 hover:bg-gray-50 text-gray-700"
+                  ? "bg-primary-700 text-white"
+                  : "border border-hairline text-ink-body hover:bg-surface-1"
               }`}
             >
               {page}
@@ -146,7 +150,7 @@ export default function BlogList({ posts }: { posts: PostMeta[] }) {
             type="button"
             onClick={() => goToPage(safeCurrentPage + 1)}
             disabled={safeCurrentPage === totalPages}
-            className="p-2 rounded-lg border border-gray-300 hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed transition-colors cursor-pointer"
+            className="p-2 rounded-md border border-hairline text-ink-body hover:bg-surface-1 disabled:opacity-30 disabled:cursor-not-allowed transition-colors cursor-pointer"
             aria-label="หน้าถัดไป"
           >
             <ChevronRight size={20} />
@@ -156,7 +160,7 @@ export default function BlogList({ posts }: { posts: PostMeta[] }) {
 
       {/* Page info */}
       {totalPages > 1 && (
-        <p className="text-center text-sm text-gray-400 mt-3">
+        <p className="text-center text-body-sm text-ink-muted mt-3">
           หน้า {safeCurrentPage} จาก {totalPages} ({filteredPosts.length} บทความ)
         </p>
       )}

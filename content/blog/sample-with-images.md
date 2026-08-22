@@ -45,7 +45,7 @@ tags: ["ตัวอย่าง", "เคล็ดลับ"]
 <img src="URL" alt="คำอธิบาย" width="400" />
 ```
 
-<img src="https://placehold.co/800x400/1E40AF/white?text=400px+Width" alt="รูปกลาง" width="400" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+<img src="https://placehold.co/800x400/0B1437/white?text=400px+Width" alt="รูปกลาง" width="400" style="border-radius: 12px;" />
 
 #### รูปเต็มความกว้าง (width 100%)
 
@@ -53,7 +53,7 @@ tags: ["ตัวอย่าง", "เคล็ดลับ"]
 <img src="URL" alt="คำอธิบาย" width="100%" />
 ```
 
-<img src="https://placehold.co/800x300/F97316/white?text=Full+Width+Image" alt="รูปเต็ม" width="100%" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+<img src="https://placehold.co/800x300/EA580C/white?text=Full+Width+Image" alt="รูปเต็ม" width="100%" style="border-radius: 12px;" />
 
 #### กำหนดทั้ง width และ height
 
@@ -61,7 +61,7 @@ tags: ["ตัวอย่าง", "เคล็ดลับ"]
 <img src="URL" alt="คำอธิบาย" width="300" height="200" />
 ```
 
-<img src="https://placehold.co/300x200/1E40AF/white?text=300x200" alt="กำหนดขนาด" width="300" height="200" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+<img src="https://placehold.co/300x200/0B1437/white?text=300x200" alt="กำหนดขนาด" width="300" height="200" style="border-radius: 12px;" />
 
 #### จัดตำแหน่งรูป (กึ่งกลาง)
 
@@ -73,7 +73,7 @@ tags: ["ตัวอย่าง", "เคล็ดลับ"]
 ```
 
 <div style="text-align: center;">
-  <img src="https://placehold.co/300x200/F97316/white?text=Centered" alt="จัดกลาง" width="300" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+  <img src="https://placehold.co/300x200/EA580C/white?text=Centered" alt="จัดกลาง" width="300" style="border-radius: 12px;" />
   <p><em>รูปนี้จัดกึ่งกลาง พร้อมคำอธิบาย</em></p>
 </div>
 
@@ -93,7 +93,7 @@ tags: ["ตัวอย่าง", "เคล็ดลับ"]
 
 ตัวอย่าง (ขนาด 400px):
 
-<img src="/api/gdrive-image?id=1yh34eKQzlz1acrnqYwkIsuhxc5GOdkTC" alt="รูปจาก Google Drive" width="400" style="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+<img src="/api/gdrive-image?id=1yh34eKQzlz1acrnqYwkIsuhxc5GOdkTC" alt="รูปจาก Google Drive" width="400" style="border-radius: 12px;" />
 
 ---
 
